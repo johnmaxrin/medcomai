@@ -1,16 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:medcomaiapp/UI/feedpage.dart';
 
-class home extends StatefulWidget {
-  home({Key key}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key key}) : super(key: key);
 
-  _homeState createState() => _homeState();
+  _HomeState createState() => _HomeState();
 }
 
-class _homeState extends State<home> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: Center(child: Text('Home')),
-    );
+    return Scaffold(
+          body: Container(
+         child: Center(child: GestureDetector(
+           onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>FeedPage()));
+           },
+                    child: Container(
+             height: 50,
+             width: 100,
+             decoration: new BoxDecoration(
+               color: Colors.redAccent,
+               borderRadius: BorderRadius.circular(20)
+             ),
+             
+             child: Center(child: Text('Get Started',style: TextStyle(color: Colors.white),),
+             
+           )),
+         ),
+      ),
+    ));
   }
 }
