@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193589081689",
+    "project_id": "medcomai",
+    "storage_bucket": "medcomai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193589081689:android:2c01d06be81b349aa76348",
+        "android_client_info": {
+          "package_name": "com.example.medcomaiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193589081689-inm3ns6kf8b59gig35irhalboluek5ag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDujLnrwiSB_8PB1jSr3KEHHtVzf8l-UA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193589081689-inm3ns6kf8b59gig35irhalboluek5ag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

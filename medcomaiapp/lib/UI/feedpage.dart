@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:medcomaiapp/UI/addDonor.dart';
+
+import 'ListsDonor.dart';
 
 class FeedPage extends StatefulWidget {
   FeedPage({Key key}) : super(key: key);
@@ -8,6 +11,9 @@ class FeedPage extends StatefulWidget {
 }
 
 class _FeedPageState extends State<FeedPage> {
+
+  final query = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,24 +61,38 @@ class _FeedPageState extends State<FeedPage> {
             margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             height: 60,
             width: MediaQuery.of(context).size.width,
+            child: TextField(
+                        controller: query,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          suffix: GestureDetector(onTap: (){
+                            if(query.text==''){
+                              print('Enter a Query');
+                            }
+                            else{
+                              FirebaseFirestore.instance
+                            .collection('user')
+                            .where('district', isEqualTo: query.text)
+                            .get()
+                            .then((data){
+                            
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>DonorList(query: query.text)));
+                            });
+
+                            }
+                            
+
+                          }, child: Icon(Icons.search)),
+                          labelText: 'Search',
+                        ),
+                      ),
+                  
             decoration: new BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white70,
+            
             ),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: Icon(
-                      Icons.search,
-                      size: 30,
-                    ),
-                  )
-                ],
-              ),
-            )),
+             ),
         Expanded(
           child: ListView.builder(
             scrollDirection: Axis.vertical,
